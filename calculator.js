@@ -14,7 +14,9 @@ function showSliderValue1() {
     label1.innerHTML = rangeSlider1.value;
   }
   var bulletPosition = (rangeSlider1.value /rangeSlider1.max);
-  rangeBullet1.style.left = (bulletPosition * 385) + "px";
+  var rangeWidth = parseFloat(rangeSlider1.clientWidth);
+  var widthVal = rangeWidth - (rangeWidth * 0.04);
+  rangeBullet1.style.left = (bulletPosition * widthVal) + "px";
   UpdateValues();
 }
 
@@ -30,8 +32,7 @@ rangeSlider2.addEventListener("input", showSliderValue2, false);
 
 function showSliderValue2() {
   label2.innerHTML = rangeSlider2.value;
-  var bulletPosition = (rangeSlider2.value /rangeSlider2.max);
-  rangeBullet2.style.left = (bulletPosition * 375) + "px";
+  BullPosition(rangeSlider2, rangeBullet2);
   UpdateValues();
 }
 
@@ -48,8 +49,7 @@ rangeSlider3.addEventListener("input", showSliderValue3, false);
 
 function showSliderValue3() {
   label3.innerHTML = rangeSlider3.value;
-  var bulletPosition = (rangeSlider3.value /rangeSlider3.max);
-  rangeBullet3.style.left = (bulletPosition * 375) + "px";
+  BullPosition(rangeSlider3, rangeBullet3);
   UpdateValues();
 }
 
@@ -68,6 +68,15 @@ function UpdateValues(){
     document.getElementById("R3").innerHTML = "€" +R3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     document.getElementById("R4").innerHTML = "€" + R4.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+function BullPosition(range,bullet){
+  var bulletPosition = (range.value / range.max);
+  var rangeWidth = parseFloat(range.clientWidth);
+  var widthVal = rangeWidth - (rangeWidth * 0.06);
+  bullet.style.left = (bulletPosition * widthVal) + "px";
+}
+
+
 
 
 
