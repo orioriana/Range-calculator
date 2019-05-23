@@ -8,15 +8,15 @@ rangeSlider1.addEventListener("input", showSliderValue1, false);
 
 
 function showSliderValue1() {
-  if(rangeSlider1.value == 3000){
-    label1.innerHTML = '3K';
+  if(rangeSlider1.value == 20000){
+    label1.innerHTML = '20K';
   } else{
-    label1.innerHTML = rangeSlider1.value;
+    label1.innerHTML = rangeSlider1.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   var bulletPosition = (rangeSlider1.value /rangeSlider1.max);
   var rangeWidth = parseFloat(rangeSlider1.clientWidth);
-  var widthVal = rangeWidth - (rangeWidth * 0.04);
-  rangeBullet1.style.left = (bulletPosition * widthVal) + "px";
+  var widthVal = rangeWidth - (rangeWidth * 0.06);
+  rangeBullet1.style.left = 10 + (bulletPosition * widthVal) + "px";
   UpdateValues();
 }
 
@@ -31,7 +31,7 @@ rangeSlider2.addEventListener("input", showSliderValue2, false);
 
 
 function showSliderValue2() {
-  label2.innerHTML = rangeSlider2.value;
+  label2.innerHTML = rangeSlider2.value + "%";
   BullPosition(rangeSlider2, rangeBullet2);
   UpdateValues();
 }
@@ -48,7 +48,7 @@ rangeSlider3.addEventListener("input", showSliderValue3, false);
 
 
 function showSliderValue3() {
-  label3.innerHTML = rangeSlider3.value;
+  label3.innerHTML = "€" + rangeSlider3.value;
   BullPosition(rangeSlider3, rangeBullet3);
   UpdateValues();
 }
