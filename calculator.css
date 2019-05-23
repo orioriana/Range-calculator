@@ -24,7 +24,7 @@ body{
 input[type=range] {
   -webkit-appearance: none; 
     background: #edefee;
-    height:8px;
+    height:4px;
     border-radius:30px;  
 }
 
@@ -228,5 +228,11 @@ input[type=range]:focus {
     margin-top: 50px !important;
     width: 95%;
     margin: 0 auto;
+    }
+}
+
+@media(max-width: 310px){
+    .cc-result h3 {
+    font-size: 27px;
     }
 }
